@@ -15,4 +15,13 @@ public class QueueLogDAO extends AbstractDAO<QueueLog> {
 		Root<QueueLog>  root = criteria.from(QueueLog.class);
 		return getManager().createQuery(criteria.select(root).orderBy(getCriteriaBuilder().desc(root.get("id")))).setMaxResults(10).getResultList();
 	}
+	
+	
+	public List<QueueLog> recuperarPorUniqueid(String uniqueid){
+		CriteriaQuery<QueueLog> criteria = getCriteriaBuilder().createQuery(QueueLog.class);
+		Root<QueueLog>  root = criteria.from(QueueLog.class);
+		return getManager().createQuery(criteria.select(root).where(getCriteriaBuilder().equal(root.get("callid"), uniqueid)).orderBy(getCriteriaBuilder().desc(root.get("id")))).setMaxResults(10).getResultList();
+	}
+	
+	
 }
