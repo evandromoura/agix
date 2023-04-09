@@ -11,6 +11,7 @@ public class Exemplo extends BaseAgiScript {
 		System.out.println("Entrou no Exemplo");
 		answer();
 		exec("Playback", "tt-weasels");
+		confbridge("naldo", "profile");
 	}
 	
 }
